@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 export default function App() {
+  const [text,onChangeText] = useState("Search");
+
+ 
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      
+       <TextInput inlineImageLeft="username"
+       inlineImagePadding={2}
+       underlineColorAndroid="transparent"  style={styles.searchbar}  onChangeText={onChangeText}
+       value={text}/>
     </View>
   );
 }
@@ -18,4 +25,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  searchbar : {
+    margin : 15,
+    width : '80%',
+    borderBottomWidth : 1,
+    borderBottomColor : 'lightgrey',
+    
+  }
 });
